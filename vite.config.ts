@@ -18,6 +18,9 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
+  preview: {
+    allowedHosts: ["uchiha-bot-your-smart-assistant.onrender.com"],
+  },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
