@@ -5,6 +5,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Phone } from "lucide-react";
 
+const BASE_URL_API = import.meta.env.VITE_API_BASE_URL || "";
+
 export const SupportForm = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
@@ -18,16 +20,34 @@ export const SupportForm = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch(`${BASE_URL_API}/support`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    toast({
-      title: "Mensagem enviada!",
-      description: "Entraremos em contacto em breve.",
-    });
+      if (!response.ok) {
+        throw new Error("Falha ao enviar a mensagem.");
+      }
 
-    setFormData({ name: "", email: "", message: "" });
-    setIsLoading(false);
+      toast({
+        title: "Mensagem enviada!",
+        description: "Enviamos um email de confirmacao. Entraremos em contacto em breve.",
+      });
+
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      toast({
+        title: "Nao foi possivel enviar",
+        description: "Tente novamente em instantes.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -40,7 +60,7 @@ export const SupportForm = () => {
   return (
     <section id="support" className="py-24 relative">
       <div className="absolute inset-0 hero-gradient opacity-30" />
-      
+
       <div className="section-container relative z-10">
         <div className="max-w-2xl mx-auto">
           {/* Section header */}
@@ -51,7 +71,7 @@ export const SupportForm = () => {
               <span className="text-gradient">ajuda?</span>
             </h2>
             <p className="body-base">
-              Entre em contacto connosco e responderemos o mais breve possível.
+              Entre em contacto connosco e responderemos o mais breve possivel.
             </p>
           </div>
 

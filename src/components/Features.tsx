@@ -3,8 +3,8 @@ import { Bot, Brain, Gauge, LayoutDashboard } from "lucide-react";
 const features = [
   {
     icon: Bot,
-    title: "Respostas IA com Gemini",
-    description: "Receba respostas inteligentes e contextuais alimentadas pela tecnologia avanÃ§ada Google Gemini.",
+    title: "Respostas IA",
+    description: "Receba respostas inteligentes e contextuais com tecnologia de IA avançada.",
   },
   {
     icon: Brain,

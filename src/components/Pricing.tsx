@@ -11,41 +11,24 @@ const plans = [
     description: "Perfeito para experimentar",
     features: [
       "30 mensagens por dia",
-      "Memória limitada",
+      "Memória limitada (200 msgs)",
       "Suporte básico",
-      "Acesso ao dashboard",
     ],
     cta: "Começar Grátis",
     popular: false,
   },
   {
     name: "Pro",
-    price: "4.999",
+    price: "1.000",
     description: "Para uso pessoal intensivo",
     features: [
       "1.000 mensagens por dia",
-      "Memória completa (200 msgs)",
+      "Memória limitada (1500 msgs)",
       "Suporte prioritário",
-      "Dashboard avançado",
       "Sem anúncios",
     ],
     cta: "Assinar Pro",
     popular: true,
-  },
-  {
-    name: "Business",
-    price: "14.999",
-    description: "Para equipas e empresas",
-    features: [
-      "10.000 mensagens por dia",
-      "Memória completa ilimitada",
-      "Suporte com SLA",
-      "Multi-agentes",
-      "API personalizada",
-      "Relatórios detalhados",
-    ],
-    cta: "Contactar Vendas",
-    popular: false,
   },
 ];
 
@@ -53,7 +36,6 @@ export const Pricing = () => {
   return (
     <section id="pricing" className="py-24 relative">
       <div className="section-container">
-        {/* Section header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">Preços</span>
           <h2 className="heading-2 mt-4 mb-6">
@@ -67,11 +49,11 @@ export const Pricing = () => {
         </div>
 
         {/* Pricing cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto justify-items-center">
           {plans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`relative rounded-2xl p-8 transition-all duration-300 hover:scale-[1.02] animate-fade-up ${
+              className={`w-full max-w-sm relative rounded-2xl p-8 transition-all duration-300 hover:scale-[1.02] animate-fade-up ${
                 plan.popular
                   ? "bg-gradient-to-b from-primary/20 to-card border-2 border-primary glow-sm"
                   : "glass"

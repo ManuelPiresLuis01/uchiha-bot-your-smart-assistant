@@ -24,7 +24,7 @@ export const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 animate-fade-up">
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-sm text-muted-foreground">Potenciado por IA Gemini</span>
+            <span className="text-sm text-muted-foreground">Potenciado por IA</span>
           </div>
 
           {/* Main heading */}
@@ -38,7 +38,7 @@ export const Hero = () => {
           {/* Subheading */}
           <p className="body-large max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: "0.2s" }}>
             Envie mensagens e receba respostas inteligentes instantaneamente no WhatsApp. 
-            Automatize conversas com IA Gemini e gerencie suas mensagens diárias com eficiência.
+            Automatize conversas com IA e gerencie suas mensagens diárias com eficiência.
           </p>
 
           {/* CTAs */}
